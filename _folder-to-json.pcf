@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?pcf-stylesheet path="folder-to-json.xsl" title="Folder to PCF" extension="json"?>
+
+<!DOCTYPE document SYSTEM "http://commons.omniupdate.com/dtd/standard.dtd"> 
+
+<document xmlns:ouc="http://omniupdate.com/XSL/Variables">
+	<ouc:info><tcf>section.tcf</tcf><tmpl>properties.tmpl</tmpl></ouc:info>
+	
+	<ouc:properties label="config">
+	</ouc:properties>
+	
+</document>

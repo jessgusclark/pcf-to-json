@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?pcf-stylesheet path="data-file.xsl" title="Sample Data File" extension="htm" publish="no"?>
+
+<!DOCTYPE document SYSTEM "http://commons.omniupdate.com/dtd/standard.dtd"> 
+
+<document xmlns:ouc="http://omniupdate.com/XSL/Variables">
+	<ouc:info><tcf>section.tcf</tcf><tmpl>properties.tmpl</tmpl></ouc:info>
+
+	<ouc:properties label="config">
+
+		<parameter name="item-name" type="text" prompt="Item Name" section="Item Information"></parameter>
+		<parameter name="address" type="text" prompt="Address"></parameter>
+		<parameter name="item-description" type="textarea" rows="3" prompt="Item Description"></parameter>
+
+		<parameter name="feature-type" type="select" prompt="Feature Type" section="Geography">
+			<option value="point" selected="true">Point</option>
+			<option value="line" selected="false">Line</option>
+			<option value="polygon" selected="false">Polygon</option>
+		</parameter>
+
+		<parameter name="feature-points" type="textarea" rows="3" prompt="Item Location" alt="This can be a single Lat,Lng point or multiple if line or polygon.">40.40851921660199,-104.6928858467312</parameter>
+
+		<parameter name="feature-image" type="filechooser" path="/map/images/" prompt="Feature Image" section="Images" dependency="yes"></parameter>
+		<parameter name="feature-youtube" type="text" prompt="Feature Video Id" alt="For example j7lllgfP0v8">j7lllgfP0v8</parameter>
+		<parameter name="image-gallery" type="asset" prompt="Image Gallery"></parameter>
+
+		<parameter name="link-text" type="text" prompt="Link Text" section="Links"></parameter>
+		<parameter name="link-url" type="filechooser" dependency="yes"  prompt="Link URL"></parameter>
+		
+		<parameter name="search" type="select" prompt="Add to Search">
+			<option value="true" selected="false">True</option>
+			<option value="false" selected="true">False</option>
+		</parameter>
+		
+		<parameter name="next" prompt="Next Item" type="filechooser" path="/map/_data/landmarks/" dependency="yes" alt="The next marker that the user should jump to, must be in the same folder/layer." section="Tour Settings"></parameter>
+		
+		<parameter name="item-style" type="select" prompt="Item Style" section="Marker Style" alt="For points only">
+			<option value="generic" selected="true">Generic</option>
+			<option value="360" selected="false">360</option>
+			<option value="academic" selected="false">Academic</option>
+			<option value="accessible" selected="false">Accessible</option> <!--new -->
+			<option value="administration" selected="false">Administration</option>
+			<option value="construction" selected="false">Construction</option>
+			<option value="dining" selected="false">Dining</option>
+			<option value="phone" selected="false">Emergency Phone</option>
+			<option value="fitness" selected="false">Fitness</option>
+			<option value="flag" selected="false">Flag</option>
+			<option value="hotel" selected="false">Housing</option>
+			<option value="library" selected="false">Library</option>
+			<option value="photo" selected="false">Photo</option>
+			<option value="support" selected="false">Student Support</option>
+		</parameter>
+		
+		<parameter name="item-style-custom" type="text" prompt="Item Style Custom" alt="Used for points. Overrides 'Item Style' above and should match the folder /images/markers/FOLDER"></parameter>
+		<parameter name="polygon-color" type="text" prompt="Polygon or Line Color" alt="Used for polygons and lines. Include the # sign if hex. i.e. #ffcc00."></parameter>
+		
+	</ouc:properties>
+
+
+</document>
