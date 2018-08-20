@@ -87,11 +87,26 @@
             <xsl:if test="position() != last()">,</xsl:if>
             
         </xsl:for-each>
-        }
 
+        <!-- include the tags for the file -->
+        <xsl:variable name="tags-api-call" select="concat('ou:/Tag/GetTags?', 'site=', $ou:site, '&amp;path=', replace(replace($file-path, concat($ou:root, $ou:site), ''), '.html', '.pcf') )" />
+        <xsl:variable name="all-tags" select="doc( $tags-api-call )/tags" />
+                
+        <!-- if tags exist, include them -->
+        <xsl:if test="count($all-tags/tag) != 0">
+            ,"tags": [
+            <xsl:for-each select="$all-tags/tag">
+                "<xsl:value-of select="name" />"
+                <xsl:if test="position() != last()">,</xsl:if>  
+            </xsl:for-each>
+            ]
+        </xsl:if>
+
+        }
+        
         <!-- if this is not the last item in the folder, add a comma -->
         <xsl:if test="not($last)">,</xsl:if>
-        
+
     </xsl:template>
 	
 </xsl:stylesheet>
